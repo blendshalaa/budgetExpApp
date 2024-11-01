@@ -1,7 +1,8 @@
 // server.js
 const express = require('express');
 const cors = require('cors');
-const pool = require('./db'); // Import the database connection
+const pool = require('./db');
+const budgetRoutes=require('./routes/budgetRoutes')// Import the database connection
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -27,6 +28,9 @@ app.get('/test-connection', async (req, res) => {
         res.status(500).json({ error: 'Database connection failed!' });
     }
 });
+
+app.use('/api/budgets', budgetRoutes);
+
 
 
 
