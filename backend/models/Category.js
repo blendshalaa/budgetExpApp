@@ -21,7 +21,7 @@ const Category={
     },
     updateCategory:async(category_id,{category_name,description})=>{
         const result=await pool.query(
-            'UPDATE categories SET name = $1, description = $2 WHERE category_id = $3 RETURNING *',
+            'UPDATE categories SET category_name = $1, description = $2 WHERE category_id = $3 RETURNING *',
             [category_name,description,category_id]
         );
         return result.rows[0]
