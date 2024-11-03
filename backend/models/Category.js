@@ -19,14 +19,14 @@ const Category={
         );
         return result.rows[0]
     },
-    updateCategory:async(category_id,{category_name,description})=>{
+    update:async(category_id,{category_name,description})=>{
         const result=await pool.query(
             'UPDATE categories SET category_name = $1, description = $2 WHERE category_id = $3 RETURNING *',
             [category_name,description,category_id]
         );
         return result.rows[0]
     },
-    deleteCategory:async(category_id)=>{
+    delete:async(category_id)=>{
         const result=await pool.query('DELETE FROM categories WHERE category_id=$1 RETURNING *',
             [category_id]
         );
