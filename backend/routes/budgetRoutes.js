@@ -5,8 +5,8 @@ const budgetController = require('../controllers/BudgetController');
 // Route to create a new budget
 router.post('/', budgetController.createBudget);
 
-// Route to get all budgets for a specific user
-router.get('/user/:user_id', budgetController.getAllBudgetsByUser);
+// Route to get all budgets
+router.get('/', budgetController.getAllBudgets)
 
 // Route to get a budget by its ID
 router.get('/:budget_id', budgetController.getBudgetById);

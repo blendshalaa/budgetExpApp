@@ -10,10 +10,10 @@ const createBudget = async (req, res) => {
     }
 };
 
-const getAllBudgetsByUser = async (req, res) => {
-    const { user_id } = req.params;
+const getAllBudgets = async (req, res) => {
+   
     try {
-        const budgets = await Budget.getAllByUser(user_id);
+        const budgets = await Budget.getAll();
         res.status(200).json(budgets);
     } catch (error) {
         res.status(500).json({ message: "Error retrieving budgets", error });
@@ -62,7 +62,7 @@ const deleteBudget = async (req, res) => {
 
 module.exports = {
     createBudget,
-    getAllBudgetsByUser,
+    getAllBudgets,
     getBudgetById,
     updateBudget,
     deleteBudget

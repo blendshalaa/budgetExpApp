@@ -9,11 +9,8 @@ const Budget = {
         return result.rows[0];
     },
 
-    getAllByUser: async (user_id) => {
-        const result = await pool.query(
-            'SELECT * FROM budgets WHERE user_id = $1',
-            [user_id]
-        );
+    getAll: async () => {
+        const result = await pool.query('SELECT * FROM budgets');
         return result.rows;
     },
 
