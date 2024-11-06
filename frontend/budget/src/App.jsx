@@ -1,12 +1,41 @@
 import { useState } from 'react'
 import '../src/styles/tailwind-base.css'
+import {createBrowserRouter, Router, RouterProvider} from 'react-router-dom'
+import Dashboard from './pages/Dashboard';
+import Budget from './pages/Budget';
+import Expense from './pages/Expense';
+import RecurringExpense from './pages/RecurringExpense';
+import NotFound from './components/NotFound';
 
 function App() {
+
+  const router=createBrowserRouter([
+    {
+      path:"/",
+      element:<Dashboard/>,
+      errorElement:<NotFound/>
+    },
+    {
+      path:'/budgets',
+      element:<Budget/>,
+      errorElement:<NotFound/>
+    },
+    {
+      path:'/expenses',
+      element:<Expense/>,
+      errorElement:<NotFound/>
+    },
+    {
+      path:'/recurringExpenses',
+      element:<RecurringExpense/>,
+      errorElement:<NotFound/>
+    }
+
+  ])
   return (
-    <div className="bg-gray-100 min-h-screen flex items-center justify-center">
-      <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-        Click Me
-      </button>
+    <div>
+      <RouterProvider router={router}/>
+
     </div>
   );
 }
