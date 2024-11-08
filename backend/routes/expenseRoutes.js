@@ -4,7 +4,7 @@ const expenseController=require('../controllers/expenseController');
 
 router.post('/',expenseController.createExpense);
 
-router.get('/user/:user_id',expenseController.getExpenseUser);
+router.get('/',expenseController.getAllExpenses);
 
 router.get('/:expense_id',expenseController.getExpenseById);
 

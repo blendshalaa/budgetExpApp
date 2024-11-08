@@ -11,14 +11,12 @@ const createExpense=async(req,res)=>{
     }
 };
 
-const getExpenseUser=async(req,res)=>{
-    const {user_id}=req.params;
-    try{
-        const expenseUser=await Expense.getAllByUser(user_id);
-        res.status(201).json(expenseUser)
+const getAllExpenses=async(req,res)=>{
+    try {
+        const expenses=await Expense.getAll();
+        res.status(200).json(expenses)
     }catch(error){
-        console.error("error getting expense by user",error);
-        res.status(500).json({message:"error getting expense by user",error})
+        res.status(500).json({message:"error retrieving expenses"})
     }
 }
 
@@ -68,7 +66,7 @@ const deleteExpense=async(req,res)=>{
 
 module.exports={
     createExpense,
-    getExpenseUser,
+  getAllExpenses, 
     getExpenseById,
     updateExpense,
     deleteExpense

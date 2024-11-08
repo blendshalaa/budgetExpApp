@@ -2,7 +2,9 @@
 const express = require('express');
 const cors = require('cors');
 const pool = require('./db');
-const budgetRoutes=require('./routes/budgetRoutes')// Import the database connection
+const budgetRoutes=require('./routes/budgetRoutes');
+const expenseRoutes=require('./routes/expenseRoutes')
+// Import the database connection
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -30,6 +32,7 @@ app.get('/test-connection', async (req, res) => {
 });
 
 app.use('/api/budgets', budgetRoutes);
+app.use('/api/expenses',expenseRoutes)
 
 
 

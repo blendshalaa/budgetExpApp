@@ -11,11 +11,9 @@ const Expense={
         );
         return result.rows[0];
     },
-    getAllByUser:async(user_id)=>{
-        const result= await pool.query('SELECT * FROM expenses where user_id=$1',
-            [user_id]
-        );
-        return result.rows
+    getAll: async () => {
+        const result = await pool.query('SELECT * FROM expenses');
+        return result.rows;
     },
     getById:async(expense_id)=>{
         const result=await pool.query('SELECT * FROM expenses where expense_id=$1',
@@ -23,7 +21,7 @@ const Expense={
         );
         return result.rows[0]
     },
-    update:async(expense_id,user_id,{category_id,amount,expense_date,description,created_at})=>{
+    update:async(expense_id,{category_id,amount,expense_date,description,created_at})=>{
         const result=await pool.query(
             'UPDATE expenses SET category_id =$1,amount=$2,expense_date=$3,description=$4,created_at=$5 RETURNING*',
             [category_id,amount,expense_date,description,created_at]
