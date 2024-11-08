@@ -1,9 +1,28 @@
 // src/pages/Dashboard.js
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import Navbar from '../components/Navbar';
 import ExpenseChart from '../components/Chart'; // Import the ExpenseChart component
 
+import axios from 'axios';
+
 const Dashboard = () => {
+    const [budgetData,setBudgetData]=useState(0);
+
+
+    useEffect(()=>{
+        const fetchBudgetData=async()=>{
+            try{
+                const response=await axios.get('http://localhost:5000/api/budgets');
+              
+                const totalBudget = response.data.reduce((acc, item) => acc + item.budget_amount, 0);
+                setBudgetData(totalBudget)
+
+            }catch(error){
+                console.error("error fetching budget data",error)
+            }
+        };
+        fetchBudgetData()
+    },[])
     return (
         <div>
             <Navbar />
@@ -14,7 +33,7 @@ const Dashboard = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
                     <div className="bg-blue-500 text-white p-6 rounded-lg shadow-md">
                         <h2 className="text-lg font-semibold">Total Budget</h2>
-                        <p className="text-3xl">$0</p>
+                        <p className="text-3xl">{budgetData}$</p>
                     </div>
                     <div className="bg-green-500 text-white p-6 rounded-lg shadow-md">
                         <h2 className="text-lg font-semibold">Total Expenses</h2>
