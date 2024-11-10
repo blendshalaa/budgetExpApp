@@ -4,10 +4,10 @@ const pool=require('../db');
 
 
 const Expense={
-    create:async({user_id,category_id,amount,expense_date,description,created_at})=>{
+    create:async({user_id,category_id,amount,expense_date,description})=>{
         const result= await pool.query(
-            'INSERT INTO expenses (user_id,category_id,amount,expense_date,description,created_at) VALUES($1,$2,$3,$4,$5,$6) RETURNING *',
-            [user_id,category_id,amount,expense_date,description,created_at]
+            'INSERT INTO expenses (user_id,category_id,amount,expense_date,description) VALUES($1,$2,$3,$4,$5) RETURNING *',
+            [user_id,category_id,amount,expense_date,description]
         );
         return result.rows[0];
     },
@@ -21,10 +21,10 @@ const Expense={
         );
         return result.rows[0]
     },
-    update:async(expense_id,{category_id,amount,expense_date,description,created_at})=>{
+    update:async(expense_id,{category_id,amount,expense_date,description,})=>{
         const result=await pool.query(
-            'UPDATE expenses SET category_id =$1,amount=$2,expense_date=$3,description=$4,created_at=$5 RETURNING*',
-            [category_id,amount,expense_date,description,created_at]
+            'UPDATE expenses SET category_id =$1,amount=$2,expense_date=$3,description=$4, RETURNING*',
+            [category_id,amount,expense_date,description,]
         );
         return result.rows[0];
     },
