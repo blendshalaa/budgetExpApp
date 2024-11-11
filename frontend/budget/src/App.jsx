@@ -6,6 +6,7 @@ import Budget from './pages/Budget';
 import Expense from './pages/Expense';
 import RecurringExpense from './pages/RecurringExpense';
 import NotFound from './components/NotFound';
+import Categories from './pages/Categories';
 
 function App() {
 
@@ -28,6 +29,11 @@ function App() {
     {
       path:'/recurringExpenses',
       element:<RecurringExpense/>,
+      errorElement:<NotFound/>
+    },
+    {
+      path:'/categories',
+      element:<Categories/>,
       errorElement:<NotFound/>
     }
 

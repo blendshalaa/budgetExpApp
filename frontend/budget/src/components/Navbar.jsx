@@ -20,6 +20,7 @@ const Navbar = () => {
                     <Link to="/budgets" className="hover:text-gray-300">Budgets</Link>
                     <Link to="/expenses" className="hover:text-gray-300">Expenses</Link>
                     <Link to="/recurringExpenses" className='hover:text-gray-300'>recurringExpenses</Link>
+                    <Link to="/categories" className="hover:text-gray-300">Categories</Link>
                 </div>
                 <button onClick={toggleMenu} className="md:hidden focus:outline-none">
                     <svg
@@ -44,6 +45,7 @@ const Navbar = () => {
                         <Link to="/budgets" className="block hover:text-gray-300">Budgets</Link>
                         <Link to="/expenses" className="block hover:text-gray-300">Expenses</Link>
                         <Link to="/recurringExpenses" className='hover:text-gray-300'>recurringExpenses</Link>
+                        <Link to="/categories" className="hover:text-gray-300">Categories</Link>
                     </div>
                 </div>
             )}

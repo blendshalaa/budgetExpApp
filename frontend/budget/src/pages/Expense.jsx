@@ -153,9 +153,7 @@ const Expenses = () => {
                 <p className="text-sm text-gray-500 mb-4">
                   Date: {new Date(expense.expense_date).toLocaleDateString()}
                 </p>
-                <p className="text-sm text-gray-400">
-                  Added: {new Date(expense.created_at).toLocaleDateString()}
-                </p>
+           
                 <div className="flex justify-between mt-4">
                   <button
                     onClick={() => handleEditClick(expense)}
