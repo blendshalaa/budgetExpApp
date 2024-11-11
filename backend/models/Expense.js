@@ -21,13 +21,15 @@ const Expense={
         );
         return result.rows[0]
     },
-    update:async(expense_id,{category_id,amount,expense_date,description,})=>{
-        const result=await pool.query(
-            'UPDATE expenses SET category_id =$1,amount=$2,expense_date=$3,description=$4, RETURNING*',
-            [category_id,amount,expense_date,description,]
+    update: async (expense_id, { category_id, amount, expense_date, description }) => {
+        const result = await pool.query(
+            'UPDATE expenses SET category_id = $1, amount = $2, expense_date = $3, description = $4 WHERE expense_id = $5 RETURNING *',
+            [category_id, amount, expense_date, description, expense_id]
         );
+    
         return result.rows[0];
     },
+    
     delete:async(expense_id)=>{
         const result =await pool.query('DELETE FROM expenses WHERE expense_id=$1 RETURNING*',
             [expense_id]
