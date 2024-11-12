@@ -41,18 +41,21 @@ const getCategoryById = async (req, res) => {
 
 const updateCategory = async (req, res) => {
     const { category_id } = req.params;
+    const { category_name, description } = req.body;
+  
     try {
-        const updatedCategory = await Category.update(category_id, req.body);
-        if (!updatedCategory) {
-            return res.status(404).json({ message: "Category not found" });
-        }
-        res.status(200).json(updatedCategory);
+      const updatedCategory = await Category.update(category_id, { category_name, description });
+  
+      if (!updatedCategory) {
+        return res.status(404).json({ message: "Category not found" });
+      }
+  
+      res.status(200).json(updatedCategory);
     } catch (error) {
-        console.error("Error updating category:", error);
-        res.status(500).json({ message: "Error updating category", error });
+      console.error("Error updating category:", error);
+      res.status(500).json({ message: "Error updating category", error });
     }
-};
-
+  };
 const deleteCategory = async (req, res) => {
     const { category_id } = req.params;
     try {
