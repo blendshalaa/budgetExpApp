@@ -4,7 +4,8 @@ const cors = require('cors');
 const pool = require('./db');
 const budgetRoutes=require('./routes/budgetRoutes');
 const expenseRoutes=require('./routes/expenseRoutes');
-const categoryRoutes=require('./routes/categoryRoutes')
+const categoryRoutes=require('./routes/categoryRoutes');
+const recurringExpenseRoutes=require('./routes/recurringExpenseRoutes')
 // Import the database connection
 
 const app = express();
@@ -34,7 +35,8 @@ app.get('/test-connection', async (req, res) => {
 
 app.use('/api/budgets', budgetRoutes);
 app.use('/api/expenses',expenseRoutes);
-app.use('/api/categories',categoryRoutes)
+app.use('/api/categories',categoryRoutes);
+app.use('/api/recurring_expenses',recurringExpenseRoutes)
 
 
 
