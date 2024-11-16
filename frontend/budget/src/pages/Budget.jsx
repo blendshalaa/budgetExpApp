@@ -91,9 +91,13 @@ function Budget() {
   };
 
   return (
-    <div>
+    <div className="bg-gray-100 min-h-screen">
       <Navbar />
-      <div className="max-w-lg mx-auto bg-white p-6 shadow-lg rounded-lg mt-10">
+      <div className="max-w-7xl mx-auto px-4 py-6">
+        <h1 className="text-2xl font-bold mb-6 text-gray-800">Budget</h1>
+        <h2 className="text-3xl font-bold mb-6 text-gray-800">
+          {editMode ? "Edit Budget" : "Add Budget"}
+        </h2>
         <form onSubmit={editMode ? handleEditSubmit : handleSubmit} className="space-y-4">
           <div className="mb-4">
             <label className="block text-sm font-semibold mb-2 text-gray-700">Budget Amount</label>
@@ -128,40 +132,46 @@ function Budget() {
               required
             />
           </div>
-          <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300">
+          <button
+            type="submit"
+            className="w-full py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300"
+          >
             {editMode ? "Update Budget" : "Add Budget"}
           </button>
         </form>
-      </div>
-
-      <div className="mt-10 max-w-lg mx-auto">
-        <ul className="space-y-4">
-          {budgets.map((budget) => (
-            <li key={budget.budget_id} className="flex justify-between items-center bg-gray-100 p-4 rounded-lg shadow-md">
-              <div>
-                <div className="font-semibold text-lg">{budget.budget_amount}</div>
-                <div className="text-gray-500 text-sm">{budget.month}/{budget.year}</div>
+  
+        {budgets.length === 0 ? (
+          <p className="text-gray-500">No budgets found.</p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10">
+            {budgets.map((budget) => (
+              <div key={budget.budget_id} className="bg-white p-6 rounded-lg shadow-md">
+                <p className="text-lg font-semibold text-gray-700 mb-2">{budget.budget_amount} €</p>
+                <p className="text-2xl font-bold text-blue-500 mb-2">
+                  {budget.month}/{budget.year}
+                </p>
+                <div className="flex justify-between mt-4">
+                  <button
+                    onClick={() => handleEditClick(budget)}
+                    className="px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition duration-300"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(budget.budget_id)}
+                    className="text-red-500 hover:underline"
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
-              <div className="flex space-x-3">
-                <button
-                  onClick={() => handleEditClick(budget)}
-                  className="px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition duration-300"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDelete(budget.budget_id)}
-                  className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-300"
-                >
-                  Delete
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
 }
+
 
 export default Budget;
