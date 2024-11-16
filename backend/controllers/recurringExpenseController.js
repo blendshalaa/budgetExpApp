@@ -36,19 +36,31 @@ const getAllRecurringById=async(req,res)=>{
     }
 };
 
-const updateRecurring=async(req,res)=>{
-    const{recurring_expense_id}=req.params;
-    try{
-        const updatedRec=await RecurringExpense.updateRecurring(recurring_expense_id);
-        if(!updatedRec){
-            return res.status(404).json({message:"recuring not found to update"})
+const updateRecurring = async (req, res) => {
+    const { recurring_expense_id } = req.params;
+    const { category_id, amount, frequency, start_date, end_date } = req.body;
+
+    try {
+        const updatedRec = await RecurringExpense.updateRecurring({
+            recurring_expense_id,
+            category_id,
+            amount,
+            frequency,
+            start_date,
+            end_date,
+        });
+
+        if (!updatedRec) {
+            return res.status(404).json({ message: "Recurring expense not found to update" });
         }
-        res.status(200).json(updatedRec)
-    }catch(error){
-        console.error("error updating recurring",error);
-        res.status(500).json({message:"error updating",error})
+
+        res.status(200).json(updatedRec);
+    } catch (error) {
+        console.error("Error updating recurring expense:", error);
+        res.status(500).json({ message: "Error updating recurring expense", error });
     }
 };
+
 
 const deleteRec=async(req,res)=>{
 const{recurring_expense_id}=req.params;
