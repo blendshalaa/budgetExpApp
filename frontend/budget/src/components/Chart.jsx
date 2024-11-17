@@ -12,8 +12,8 @@ const Chart = ({ data }) => {
       {
         label: 'Expense Amount',
         data: data.map(item => item.amount),   // Use amount as the data
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(255, 99, 132, 0.6)', // Light Red for Bars
+        borderColor: 'rgba(255, 99, 132, 1)',     // Darker Red Border
         borderWidth: 1,
       },
     ],
@@ -25,11 +25,51 @@ const Chart = ({ data }) => {
       title: {
         display: true,
         text: 'Expense Overview',
+        font: {
+          size: 20, // Title font size
+          family: 'Poppins, sans-serif', // Title font family
+        },
+        color: '#333', // Title color
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.7)', // Dark background for tooltips
+        titleColor: '#fff',      // Tooltip title color
+        bodyColor: '#fff',       // Tooltip body color
+        borderColor: 'rgba(255, 99, 132, 0.8)', // Border color for tooltips
+        borderWidth: 1,
+      },
+    },
+    scales: {
+      x: {
+        grid: {
+          color: 'rgba(200, 200, 200, 0.3)', // Lighter grid lines
+        },
+        ticks: {
+          color: '#333', // X-axis tick color
+        },
+      },
+      y: {
+        grid: {
+          color: 'rgba(200, 200, 200, 0.3)', // Lighter grid lines
+        },
+        ticks: {
+          color: '#333', // Y-axis tick color
+        },
+      },
+    },
+    elements: {
+      bar: {
+        backgroundColor: 'rgba(255, 99, 132, 0.6)', // Bar color (red)
+        hoverBackgroundColor: 'rgba(255, 99, 132, 0.8)', // Hover effect (darker red)
       },
     },
   };
 
-  return <Bar data={chartData} options={options} />;
+  return (
+    <div style={{ background: 'linear-gradient(135deg, )', padding: '20px', borderRadius: '8px' }}>
+      <Bar data={chartData} options={options} />
+    </div>
+  );
 };
 
 export default Chart;

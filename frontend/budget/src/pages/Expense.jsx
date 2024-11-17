@@ -93,7 +93,7 @@ const Expenses = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-orange-50 min-h-screen">
       <Navbar />
       <div className="max-w-7xl mx-auto px-4 py-6">
         <h1 className="text-2xl font-bold mb-6 text-gray-800">Expenses</h1>

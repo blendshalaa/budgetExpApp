@@ -85,12 +85,11 @@ function Categories() {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-orange-50 min-h-screen">
       <Navbar />
       <div className="container mx-auto px-4 py-6">
         <h1 className="text-3xl font-bold text-gray-800 mb-6">Categories</h1>
 
-        {/* Add/Edit Category Form */}
         <div className="bg-white p-8 rounded-lg shadow-lg mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
             {editMode ? "Edit Category" : "Add Category"}

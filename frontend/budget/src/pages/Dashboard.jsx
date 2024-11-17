@@ -15,7 +15,7 @@ const Dashboard = () => {
                 const totalBudget = response.data.reduce((acc, item) => acc + item.budget_amount, 0);
                 setBudgetData(totalBudget);
             } catch (error) {
-                console.error("error fetching budget data", error);
+                console.error('Error fetching budget data', error);
             }
         };
         fetchBudgetData();
@@ -29,35 +29,35 @@ const Dashboard = () => {
                 setExpenseData(totalExpense);
                 setExpenseDetails(response.data); // Store detailed expenses for the chart
             } catch (error) {
-                console.error("error fetching expense data", error);
+                console.error('Error fetching expense data', error);
             }
         };
         fetchExpenseData();
     }, []);
 
     return (
-        <div>
+        <div className="bg-orange-50 min-h-screen">
             <Navbar />
-            <div className="max-w-7xl mx-auto px-4 py-6">
-                <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
+            <div className="max-w-7xl mx-auto px-6 py-8">
+                <h1 className="text-4xl font-bold text-gray-800 mb-10">Dashboard</h1>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-                    <div className="bg-blue-500 text-white p-6 rounded-lg shadow-md">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <div className="bg-gradient-to-r from-teal-400 to-teal-500 text-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
                         <h2 className="text-lg font-semibold">Total Budget</h2>
-                        <p className="text-3xl">{budgetData}€</p>
+                        <p className="text-4xl font-bold">{budgetData}€</p>
                     </div>
-                    <div className="bg-green-500 text-white p-6 rounded-lg shadow-md">
+                    <div className="bg-gradient-to-r from-orange-400 to-orange-500 text-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
                         <h2 className="text-lg font-semibold">Total Expenses</h2>
-                        <p className="text-3xl">{expenseData}€</p>
+                        <p className="text-4xl font-bold">{expenseData}€</p>
                     </div>
-                    <div className="bg-red-500 text-white p-6 rounded-lg shadow-md">
+                    <div className="bg-gradient-to-r from-indigo-400 to-indigo-500 text-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
                         <h2 className="text-lg font-semibold">Remaining Balance</h2>
-                        <p className="text-3xl">{budgetData - expenseData}€</p>
+                        <p className="text-4xl font-bold">{budgetData - expenseData}€</p>
                     </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                    <h2 className="text-xl font-bold mb-4">Expense Overview</h2>
+                <div className="bg-orange-50 p-8 rounded-lg shadow-lg">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-6">Expense Overview</h2>
                     {/* Render the ExpenseChart with expense details */}
                     <Chart data={expenseDetails} />
                 </div>
