@@ -1,4 +1,4 @@
-BudgetApp
+
 BudgetApp is a simple and user-friendly tool designed to help users effectively manage their budgets and track expenses. Whether for personal use or managing small business finances, BudgetApp simplifies financial planning and tracking.
 
 🛠 Features
