@@ -1,12 +1,13 @@
-BudgetApp is a simple and user-friendly tool for managing budgets and tracking expenses. It helps users stay on top of their finances by providing easy ways to track spending, visualize data, and manage financial goals. Perfect for personaluse!
-Key Features:
-Budget Management: Add, edit, and delete budget entries for specific months and years.
-Expense Tracking: Log expenses with detailed information, including amount, category, and frequency.
-Expense Overview: Visualize spending patterns with charts and summary statistics.
-Remaining Balance: Instantly see your remaining budget after expenses.
-Interactive UI: A clean, responsive, and intuitive interface designed for all devices.
-Data Visualization: Built-in charting tools for understanding your spending habits.
-Technologies Used:
+BudgetApp
+BudgetApp is a simple and user-friendly tool designed to help users effectively manage their budgets and track expenses. Whether for personal use or managing small business finances, BudgetApp simplifies financial planning and tracking.
+
+🛠 Features
+📊 Budget Tracking: Add, edit, and track budgets for different timeframes.
+💸 Expense Management: Record and categorize expenses easily.
+📈 Data Visualization: View spending patterns with interactive charts.
+⚙️ Seamless Experience: Intuitive UI built with modern web technologies.
+
+🚀 Technologies Used
 Frontend: React.js, Tailwind CSS
 Backend: Node.js, Express.js
 Database: PostgreSQL
