@@ -1,21 +1,38 @@
+# Budget Application
 
-BudgetApp is a simple and user-friendly tool designed to help users effectively manage their budgets and track expenses. Whether for personal use or managing small business finances, BudgetApp simplifies financial planning and tracking.
+A simple web-app to track budgets, expenses, and remaining balances with an interactive chart view.
 
-🛠 Features
-📊 Budget Tracking: Add, edit, and track budgets for different timeframes.
-💸 Expense Management: Record and categorize expenses easily.
-📈 Data Visualization: View spending patterns with interactive charts.
-⚙️ Seamless Experience: Intuitive UI built with modern web technologies.
+---
 
-🚀 Technologies Used
+## Table of Contents
 
-Frontend: React.js, Tailwind CSS
-Backend: Node.js, Express.js
-Database: PostgreSQL
-Other Tools: Axios for API communication, Chart.js for data visualization
+1. [Features](#features)  
+2. [Technologies Used](#technologies-used)  
+3. [Screenshots](#screenshots)  
+
+---
+
+## Features
+
+- Track total budgets and expenses.  
+- Visualize expenses
+- User-friendly dashboard 
+- Manage budgets and expenses with full CRUD functionality. 
+---
+
+## Technologies Used
+
+- **Frontend**: React, TailwindCSS  
+- **Backend**: Node.js, Express  
+- **Database**: PostgreSQL  
+- **Chart**: Chart.js  
+
+---
+
+## Screenshots
+
+![Dashboard Screenshot](assets/screenshot.png)
 
 
-📋 Future Enhancements:
+---
 
-Add user authentication for personalized experiences.
-Support exporting financial reports.
