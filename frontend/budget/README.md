@@ -1,8 +1,38 @@
-# React + Vite
+# Budget Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple web-app to track budgets, expenses, and remaining balances with an interactive chart view.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
+
+1. [Features](#features)  
+2. [Technologies Used](#technologies-used)  
+3. [Screenshots](#screenshots)  
+
+---
+
+## Features
+
+- Track total budgets and expenses.  
+- Visualize expenses
+- User-friendly dashboard 
+- Manage budgets and expenses with full CRUD functionality. 
+---
+
+## Technologies Used
+
+- **Frontend**: React, TailwindCSS  
+- **Backend**: Node.js, Express  
+- **Database**: PostgreSQL  
+- **Chart**: Chart.js  
+
+---
+
+## Screenshots
+
+![Dashboard Screenshot](../screencapture-localhost-5173-2024-11-21-01_48_42.png)
+
+
+---
+
