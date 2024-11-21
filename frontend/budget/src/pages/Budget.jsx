@@ -10,10 +10,10 @@ function Budget() {
     month: "",
     year: "",
   });
-  const [editMode, setEditMode] = useState(false); // Track if we are in edit mode
-  const [currentBudget, setCurrentBudget] = useState(null); // Track the budget being edited
+  const [editMode, setEditMode] = useState(false); 
+  const [currentBudget, setCurrentBudget] = useState(null); 
 
-  // Fetch budgets from the API
+
   useEffect(() => {
     const fetchBudget = async () => {
       try {
@@ -26,12 +26,12 @@ function Budget() {
     fetchBudget();
   }, []);
 
-  // Handle submit for new budget creation
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/api/budgets', newBudget);
-      setBudgets([...budgets, response.data]); // Add the new budget to the list
+      setBudgets([...budgets, response.data]); 
       setNewBudget({
         budget_amount: "",
         month: "",
@@ -42,7 +42,7 @@ function Budget() {
     }
   };
 
-  // Handle input change
+ 
   const handleInputChange = (e) => {
     setNewBudget({
       ...newBudget,
@@ -50,10 +50,10 @@ function Budget() {
     });
   };
 
-  // Handle edit button click
+
   const handleEditClick = (budget) => {
     setEditMode(true);
-    setCurrentBudget(budget); // Set the current budget to be edited
+    setCurrentBudget(budget); 
     setNewBudget({
       budget_amount: budget.budget_amount,
       month: budget.month,
@@ -61,13 +61,13 @@ function Budget() {
     });
   };
 
-  // Handle updating the budget
+
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.put(`http://localhost:5000/api/budgets/${currentBudget.budget_id}`, newBudget);
       setBudgets(budgets.map(budget => (budget.budget_id === currentBudget.budget_id ? response.data : budget)));
-      setEditMode(false); // Exit edit mode
+      setEditMode(false); 
       setNewBudget({
         budget_amount: "",
         month: "",
@@ -84,7 +84,7 @@ function Budget() {
   const handleDelete = async (budget_id) => {
     try {
       await axios.delete(`http://localhost:5000/api/budgets/${budget_id}`);
-      setBudgets(budgets.filter(budget => budget.budget_id !== budget_id)); // Remove the deleted budget from the list
+      setBudgets(budgets.filter(budget => budget.budget_id !== budget_id)); 
     } catch (error) {
       console.error("Error deleting budget", error);
     }

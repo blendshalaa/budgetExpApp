@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
-import Chart from '../components/Chart'; // Import the ExpenseChart component
+import Chart from '../components/Chart'; 
 import axios from 'axios';
 
 const Dashboard = () => {
     const [budgetData, setBudgetData] = useState(0);
     const [expenseData, setExpenseData] = useState(0);
-    const [expenseDetails, setExpenseDetails] = useState([]); // Store detailed expense data
+    const [expenseDetails, setExpenseDetails] = useState([]); 
 
     useEffect(() => {
         const fetchBudgetData = async () => {
@@ -21,13 +21,14 @@ const Dashboard = () => {
         fetchBudgetData();
     }, []);
 
+    
     useEffect(() => {
         const fetchExpenseData = async () => {
             try {
                 const response = await axios.get('http://localhost:5000/api/expenses');
                 const totalExpense = response.data.reduce((acc, item) => acc + item.amount, 0);
                 setExpenseData(totalExpense);
-                setExpenseDetails(response.data); // Store detailed expenses for the chart
+                setExpenseDetails(response.data); 
             } catch (error) {
                 console.error('Error fetching expense data', error);
             }
@@ -58,7 +59,7 @@ const Dashboard = () => {
 
                 <div className="bg-orange-50 p-8 rounded-lg shadow-lg">
                     <h2 className="text-2xl font-bold text-gray-800 mb-6">Expense Overview</h2>
-                    {/* Render the ExpenseChart with expense details */}
+                  
                     <Chart data={expenseDetails} />
                 </div>
             </div>

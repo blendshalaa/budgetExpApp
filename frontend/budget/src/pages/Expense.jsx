@@ -49,7 +49,7 @@ const Expenses = () => {
 
   const handleEditClick = (expense) => {
     setEditMode(true);
-    setCurrentExpense(expense); // Pass expense object instead of 'true'
+    setCurrentExpense(expense); 
     setNewExpense({
       amount: expense.amount,
       expense_date: expense.expense_date,
@@ -61,7 +61,7 @@ const Expenses = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/expenses/${currentExpense.expense_id}`, // Corrected endpoint
+        `http://localhost:5000/api/expenses/${currentExpense.expense_id}`, 
         newExpense
       );
       setExpenses(expenses.map(expense => (
