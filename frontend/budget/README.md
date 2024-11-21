@@ -31,7 +31,7 @@ A simple web-app to track budgets, expenses, and remaining balances with an inte
 
 ## Screenshots
 
-![Dashboard Screenshot](../screencapture-localhost-5173-2024-11-21-01_48_42.png)
+![Dashboard Screenshot](/frontend/budget/src/assets/dashboard.png)
 
 
 ---
