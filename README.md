@@ -29,6 +29,15 @@ A simple web-app to track budgets, expenses, and remaining balances with an inte
 
 ---
 
+## Ongoing Development
+
+This project is still under active development. I'm currently working on adding new features, including:
+
+- Multi-user support (user authentication and authorization).
+- Expense categorization for better budgeting insights.
+- Ability to export budgets and expenses as CSV.
+- Enhanced reporting tools (monthly and yearly summaries).
+
 ## Screenshots
 
 ![Dashboard Screenshot](/frontend/budget/src/assets/dashboard.png)
